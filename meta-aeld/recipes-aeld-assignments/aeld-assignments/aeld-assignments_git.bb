@@ -19,9 +19,9 @@ SRCREV = "c4ebb718e574f48bf7aec4858b44b38071ee96a6"
 
 S = "${WORKDIR}/git/aesd-char-driver"
 
-FILES:${PN} += "${bindir}/aesdchar_load ${bindir}/aesdchar_unload"
-
 inherit module update-rc.d
+
+FILES:${PN} += "${bindir}/aesdchar_load ${bindir}/aesdchar_unload"
 
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME:${PN} = "aeld-assignments-start-stop"
@@ -31,7 +31,7 @@ FILES:${PN} += "${sysconfdir}/init.d/aeld-assignments-start-stop"
 
 SRC_URI += "file://aeld-assignments-start-stop"
 
-EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}
+EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}"
 EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
 
 do_install:append() {
