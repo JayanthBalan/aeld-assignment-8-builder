@@ -15,7 +15,7 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-JayanthBala
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "d32b337bdb528193a142e3483bd1f5769fe78a13"
+SRCREV = "c4ebb718e574f48bf7aec4858b44b38071ee96a6"
 
 S = "${WORKDIR}/git/aesd-char-driver"
 
@@ -31,6 +31,7 @@ FILES:${PN} += "${sysconfdir}/init.d/aeld-assignments-start-stop"
 
 SRC_URI += "file://aeld-assignments-start-stop"
 
+EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}
 EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
 
 do_install:append() {
